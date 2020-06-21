@@ -20,9 +20,9 @@ def get_datetime(pre_midnight, hour, minutes, seconds=0, as_string=False):
         return date_str
     else:
         dt = datetime.datetime.strptime(date_str, '%d/%m/%Y %H:%M:%S')
-        dt.year = today.year
-        dt.month = today.month
-        dt.day = today.day
+        dt = dt.replace(year=today.year)
+        dt = dt.replace(month=today.month)
+        dt = dt.replace(day=today.day)
         return dt
 
 def str_to_datetime(datetime_str):
